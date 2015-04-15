@@ -9,3 +9,6 @@ insecure
 iron:router
 mrt:bootstrap-3
 chuangbo:marked
+accounts-base
+accounts-google
+accounts-ui-unstyled

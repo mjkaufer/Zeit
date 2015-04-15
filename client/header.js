@@ -14,4 +14,16 @@ Template.header.helpers({
 
         return ids;
     }
+});
+
+Template.header.events({
+	"click #login": function(){
+		Meteor.loginWithGoogle();
+	},
+	"click #logout": function(){
+		Meteor.logout();
+	},
+	"submit #acctForm": function(e){
+		e.preventDefault();
+	}
 })

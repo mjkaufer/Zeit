@@ -25,16 +25,27 @@
 							{{#each papers}}
 								<li><a href="{{pathFor 'issue' _id=id }}">{{month}} {{year}}</a></li>
 
-
-<!-- 								<h3>{{month}} <small><a href="{{pathFor 'issue' _id=this.parentId }}" class="sneakyLink">{{date}}</a></small></ -->
-
-
 							{{/each}}
 						</ul>
 					</li>
 				</ul>
-			</div><!-- /.navbar-collapse -->
-		</div><!-- /.container-fluid -->
+
+				<ul class="nav navbar-nav navbar-right">
+					{{#if and Template.subscriptionsReady currentUser}}
+						<li><a href="#">Wilkommen</a></li>
+					{{/if}}
+					<form class="navbar-form navbar-right" role="search" id="acctForm">
+					{{#if and Template.subscriptionsReady currentUser}}
+						<button class="btn btn-default" id="logout">Ausloggen</button>
+					{{else}}
+						<button class="btn btn-default" id="login">Einloggen!</button>
+					{{/if}}
+					</form>
+
+				</ul>
+
+			</div>
+		</div>
 	</nav>
 
 </template>

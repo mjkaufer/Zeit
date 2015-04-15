@@ -5,3 +5,7 @@ UI.registerHelper('formatDate', function(date){
 UI.registerHelper('idStr', function(s){
 	return s._str;
 })
+
+UI.registerHelper('and', function(a, b){
+	return a && b;
+})
