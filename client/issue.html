@@ -1,0 +1,8 @@
+<template name="issue">
+	<h2>{{paperInfo}}</h2>
+
+	{{#each articles}}
+		{{> article article=this}}
+	{{/each}}
+
+</template>

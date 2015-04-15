@@ -9,7 +9,7 @@
 			<label for="issue">Datum</label>
 			<select id="issue" class="form-control">
 				{{#each options}}
-					<option value="{{_id}}">{{month}} {{year}}</option>
+					<option value="{{idStr _id}}">{{month}} {{year}}</option>
 				{{/each}}
 			</select>
 		</div>
@@ -23,16 +23,16 @@
 	<hr>
 	<div id="md">
 
-		<h3>{{title}}</h3>
-		<small>{{date}} Zeitung</small>
-		<br/>
-		<small><small>({{formatDate submitted}} vorgelegt)</small></small>
-		<hr>
+		<div class="article">
+			<h3>{{title}} <small>{{date}}</small></h3>
+			<small><small>({{formatDate submitted}} vorgelegt)</small></small>
+			<hr>
 
-		{{#markdown}}
-			{{article}}
-		{{/markdown}}
-
+			{{#markdown}}
+				{{article}}
+			{{/markdown}}
+		</div>
+		
 	</div>
 
 	<button id="sub">Absenden!</button>

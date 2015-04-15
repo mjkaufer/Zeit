@@ -28,7 +28,7 @@ Template.submit.events({
                 title: $('#title').val().trim(),
                 date: $('#issue').text().trim(),
                 submitted: new Date(),
-                parentId: $('#issue').val().trim()
+                parentId: new Mongo.ObjectID($('#issue').val().trim())
             }) //todo, add user who submitted
             Router.go('/');
         }
