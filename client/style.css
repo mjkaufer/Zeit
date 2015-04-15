@@ -1,3 +1,10 @@
 #footer{
 	text-align: center;
 }
+
+.article{
+	border: solid #d5d5d5 0.125em;
+	border-radius: 0.5em;
+	padding: 1em;
+	margin: 2em 0;
+}
