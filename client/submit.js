@@ -9,7 +9,7 @@ Template.submit.helpers({
         return Newspapers.find({})
     },
     date: function() {
-        return Session.get("date");
+        return Session.get("date") || new Date();
     },
     submitted: function(){
     	return Session.get("submitted");
@@ -31,7 +31,7 @@ Template.submit.events({
                 title: $('#title').val().trim(),
                 date: $('#issue').text().trim(),
                 submitted: new Date(),
-                parentId: new Mongo.ObjectID($('#issue').val().trim())
+                parentId: $('#issue').val().trim()
             }) //todo, add user who submitted
             Router.go('/');
         }

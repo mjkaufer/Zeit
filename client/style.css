@@ -8,3 +8,8 @@
 	padding: 1em;
 	margin: 2em 0;
 }
+
+#headerLink{
+	color: inherit;
+	text-decoration: inherit;
+}
