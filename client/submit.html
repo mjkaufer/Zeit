@@ -1,36 +1,41 @@
 <template name="submit">
 	<h2>Leg deinen Artikel vor</h2>
-	<form id="hochladen">
-		<div class="form-group">
-			<label for="title">Titel</label>
-			<input type="text" class="form-control" id="title" placeholder="Titel deines Artikels">
-		</div>
-		<div class="form-group">
-			<label for="issue">Datum</label>
-			<select id="issue" class="form-control">
-				{{#each options}}
-					<option value="{{idStr _id}}">{{month}} {{year}}</option>
-				{{/each}}
-			</select>
-		</div>
-		<div class="form-group">
-			<label for="article">Dein Artikel</label>
-			<textarea class="form-control" rows="10" id="article"></textarea>
-		</div>
-	</form>
 
-	{{#if rendered}}
+	{{#if currentUser}}
+		<form id="hochladen">
+			<div class="form-group">
+				<label for="title">Titel</label>
+				<input type="text" class="form-control" id="title" placeholder="Titel deines Artikels">
+			</div>
+			<div class="form-group">
+				<label for="issue">Datum</label>
+				<select id="issue" class="form-control">
+					{{#each options}}
+						<option value="{{idStr _id}}">{{month}} {{year}}</option>
+					{{/each}}
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="article">Dein Artikel</label>
+				<textarea class="form-control" rows="10" id="article"></textarea>
+			</div>
+		</form>
 
-		<h3>Vorschau</h3>
-		<hr>
-		<div id="md">
+		{{#if rendered}}
 
-			{{> article article=articleObj}}
+			<h3>Vorschau</h3>
+			<hr>
+			<div id="md">
 
-		</div>
+				{{> article article=articleObj}}
 
+			</div>
+
+		{{/if}}
+
+		<button id="sub">Absenden!</button>
+	{{else}}
+		<p>Bitte zuerst einloggen!</p>
 	{{/if}}
-
-	<button id="sub">Absenden!</button>
 
 </template>

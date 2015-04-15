@@ -33,7 +33,8 @@ function articleObject(){
         title: $('#title').val().trim() || "Titel",
         date: $('#issue option:selected').text().trim() || "Monat Jahr",
         submitted: new Date() || new Date(),
-        parentId: $('#issue').val().trim()
+        parentId: $('#issue').val().trim(),
+        author: Meteor.user().profile.name
     }
 }
 
