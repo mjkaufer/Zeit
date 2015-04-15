@@ -10,6 +10,9 @@ Template.submit.helpers({
     },
     date: function() {
         return Session.get("date");
+    },
+    submitted: function(){
+    	return Session.get("submitted");
     }
 
 });
@@ -40,6 +43,7 @@ function updateSessionVars() {
     Session.set("article", "\n" + $('#article').val()); //need to concatenate the newline because of a bug in the markdown package
     Session.set("title", $('#title').val());
     Session.set("date", $('#issue').text().trim());
+    Session.set("submitted", new Date());
 
 }
 
