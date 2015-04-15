@@ -66,12 +66,12 @@ Template.submit.rendered = function() {
 }
 
 var entityMap = {
-	"&": "&amp;",
+	// "&": "&amp;",
 	"<": "&lt;",
 	">": "&gt;",
 	'"': '&quot;',
 	"'": '&#39;',
-	"/": '&#x2F;'
+	// "/": '&#x2F;'//need this so we can post links!
 };
 
 function escapeHtml(string) {
