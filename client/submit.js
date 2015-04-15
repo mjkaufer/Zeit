@@ -29,7 +29,7 @@ Template.submit.events({
             Posts.insert({
                 article: "\n" + $('#article').val().trim(),
                 title: $('#title').val().trim(),
-                date: $('#issue').text().trim(),
+                date: $('#issue option:selected').text().trim(),
                 submitted: new Date(),
                 parentId: $('#issue').val().trim()
             }) //todo, add user who submitted
