@@ -31,7 +31,7 @@ function articleObject(){
 	return {
         article: "\n" + $('#article').val().trim() || "Titel",
         title: $('#title').val().trim() || "\nArtikel Text",
-        date: $('#issue option:selected').text().trim() || "Monat, Jahr",
+        date: $('#issue option:selected').text().trim() || "Monat Jahr",
         submitted: new Date() || new Date(),
         parentId: $('#issue').val().trim()
     }

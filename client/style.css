@@ -13,3 +13,7 @@
 	color: inherit;
 	text-decoration: inherit;
 }
+
+body{
+	padding: 1em 0;
+}
