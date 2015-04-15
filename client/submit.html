@@ -23,8 +23,10 @@
 	<hr>
 	<div id="md">
 
-		<h1>{{title}}</h1>
-		<small>{{date}}</small>
+		<h3>{{title}}</h3>
+		<small>{{date}} Zeitung</small>
+		<br/>
+		<small><small>({{formatDate submitted}} vorgelegt)</small></small>
 		<hr>
 
 		{{#markdown}}
@@ -32,5 +34,7 @@
 		{{/markdown}}
 
 	</div>
+
+	<button id="sub">Absenden!</button>
 
 </template>

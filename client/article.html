@@ -1,0 +1,13 @@
+<template name="article">
+	{{#with article}}
+		<h3>{{title}}</h3>
+		<small>{{date}} Zeitung</small>
+		<br/>
+		<small><small>({{formatDate submitted}} vorgelegt)</small></small>
+		<hr>
+
+		{{#markdown}}
+			{{article}}
+		{{/markdown}}
+	{{/with}}
+</template>
