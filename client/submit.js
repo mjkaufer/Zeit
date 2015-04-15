@@ -29,8 +29,8 @@ Template.submit.helpers({
 
 function articleObject(){
 	return {
-        article: "\n" + $('#article').val().trim() || "Titel",
-        title: $('#title').val().trim() || "\nArtikel Text",
+        article: "\n" + escapeHtml($('#article').val().trim()) || "\nArtikel Text",
+        title: $('#title').val().trim() || "Titel",
         date: $('#issue option:selected').text().trim() || "Monat Jahr",
         submitted: new Date() || new Date(),
         parentId: $('#issue').val().trim()
@@ -54,10 +54,7 @@ Template.submit.events({
 });
 
 function updateSessionVars() {
-    Session.set("article", "\n" + $('#article').val()); //need to concatenate the newline because of a bug in the markdown package
-    Session.set("title", $('#title').val());
-    Session.set("date", $('#issue').text().trim());
-    Session.set("submitted", new Date());
+
     Session.set("rendered", true);
     Session.set("articleObj", articleObject());
 
@@ -65,4 +62,19 @@ function updateSessionVars() {
 
 Template.submit.rendered = function() {
     updateSessionVars();
+}
+
+var entityMap = {
+	"&": "&amp;",
+	"<": "&lt;",
+	">": "&gt;",
+	'"': '&quot;',
+	"'": '&#39;',
+	"/": '&#x2F;'
+};
+
+function escapeHtml(string) {
+	return String(string).replace(/[&<>"'\/]/g, function (s) {
+		return entityMap[s];
+	});
 }
