@@ -32,7 +32,7 @@
 
 				<ul class="nav navbar-nav navbar-right">
 					{{#if and Template.subscriptionsReady currentUser}}
-						<li><a href="#">Wilkommen</a></li>
+						<li><a href="#">Wilkommen, {{currentUser.profile.name}}</a></li>
 					{{/if}}
 					<form class="navbar-form navbar-right" role="search" id="acctForm">
 					{{#if and Template.subscriptionsReady currentUser}}
