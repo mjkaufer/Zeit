@@ -1,7 +1,7 @@
 <template name="article">
 	{{#with article}}
 		<div class="article">
-			<h3>{{title}} <small>{{date}}</small></h3>
+			<h3>{{title}} <small><a href="{{pathFor 'issue' _id=this.parentId }}" class="sneakyLink">{{date}}</a></small></h3>
 			<small><small>({{formatDate submitted}} vorgelegt)</small></small>
 			<hr>
 

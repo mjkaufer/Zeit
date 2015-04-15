@@ -19,21 +19,17 @@
 		</div>
 	</form>
 
-	<h3>Vorschau</h3>
-	<hr>
-	<div id="md">
+	{{#if rendered}}
 
-		<div class="article">
-			<h3>{{title}} <small>{{date}}</small></h3>
-			<small><small>({{formatDate submitted}} vorgelegt)</small></small>
-			<hr>
+		<h3>Vorschau</h3>
+		<hr>
+		<div id="md">
 
-			{{#markdown}}
-				{{article}}
-			{{/markdown}}
+			{{> article article=articleObj}}
+
 		</div>
-		
-	</div>
+
+	{{/if}}
 
 	<button id="sub">Absenden!</button>
 

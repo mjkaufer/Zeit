@@ -1,21 +1,41 @@
+Session.set("rendered", false);
+
 Template.submit.helpers({
-    article: function() {
-        return Session.get("article") != "\n" ? Session.get("article") : "\nArtikel Text";
-    },
-    title: function() {
-        return Session.get("title") || "Titel";
-    },
+	rendered: function(){
+		return Session.get("rendered");
+	},
+    // article: function() {
+    //     return Session.get("article") != "\n" ? Session.get("article") : "\nArtikel Text";
+    // },
+    // title: function() {
+    //     return Session.get("title") || "Titel";
+    // },
     options: function() {
         return Newspapers.find({})
     },
-    date: function() {
-        return Session.get("date") || new Date();
-    },
-    submitted: function(){
-    	return Session.get("submitted");
+    // date: function() {
+    //     return Session.get("date") || new Date();
+    // },
+    // submitted: function(){
+    // 	return Session.get("submitted");
+    // },
+    articleObj: function(){
+    	return Session.get("articleObj");
     }
 
 });
+
+
+
+function articleObject(){
+	return {
+        article: "\n" + $('#article').val().trim() || "Titel",
+        title: $('#title').val().trim() || "\nArtikel Text",
+        date: $('#issue option:selected').text().trim() || "Monat, Jahr",
+        submitted: new Date() || new Date(),
+        parentId: $('#issue').val().trim()
+    }
+}
 
 Template.submit.events({
     'keyup': function() {
@@ -26,13 +46,7 @@ Template.submit.events({
     },
     'click #sub': function() {
         if ($('#article').val().trim() != "" && $('#title').val().trim() != "" && $('#issue').val().trim() != ""){
-            Posts.insert({
-                article: "\n" + $('#article').val().trim(),
-                title: $('#title').val().trim(),
-                date: $('#issue option:selected').text().trim(),
-                submitted: new Date(),
-                parentId: $('#issue').val().trim()
-            }) //todo, add user who submitted
+            Posts.insert(articleObject()) //todo, add user who submitted
             Router.go('/');
         }
 
@@ -44,6 +58,8 @@ function updateSessionVars() {
     Session.set("title", $('#title').val());
     Session.set("date", $('#issue').text().trim());
     Session.set("submitted", new Date());
+    Session.set("rendered", true);
+    Session.set("articleObj", articleObject());
 
 }
 
