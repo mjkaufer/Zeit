@@ -1,2 +1,2 @@
 # Zeit
-Microplatform to publish virtual newspapers. Built with Meteor.
+Markdown supporting microplatform to publish virtual newspapers. Built with Meteor.
