@@ -3,7 +3,7 @@
 		<div class="article">
 			<h3>{{title}} <small><a href="{{pathFor 'issue' _id=this.parentId }}" class="sneakyLink">{{date}}</a></small></h3>
 			<h5>von {{author}}</h5>
-			<small><small>({{formatDate submitted}} vorgelegt)</small></small>
+			<small><small>{{formatDate submitted}}</small></small>
 			<hr>
 
 			{{#markdown}}
