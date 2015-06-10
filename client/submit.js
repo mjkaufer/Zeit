@@ -11,7 +11,7 @@ Template.submit.helpers({
     //     return Session.get("title") || "Titel";
     // },
     options: function() {
-        return Newspapers.find({})
+        return Newspapers.find({active: true})
     },
     // date: function() {
     //     return Session.get("date") || new Date();
